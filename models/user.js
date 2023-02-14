@@ -1,5 +1,6 @@
 import { string } from "joi";
 import mongoose from "mongoose";
+// import { Appurl } from "../config";
 
 
 const userschema = new mongoose.Schema({
@@ -22,12 +23,11 @@ const userschema = new mongoose.Schema({
     },
     image: {
         type: String,
-        required: true,
-        get: (image)=>{return `${Appurl}/${image}`}
+        // get: (image)=>{return `${Appurl}/${image}`}
     }
     },{
         timestamps: true,
-        toJSON: {getters:true}
+        // toJSON: {getters:true}
     }
 
 
