@@ -8,12 +8,14 @@ import path from 'path';
 
 
 const mongoose= require('mongoose');
+var cors = require('cors');
 
 global.approot = path.resolve(__dirname);
 
 
 
 const app = express();
+app.use(cors());
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
@@ -24,4 +26,4 @@ app.use('/api',routes);
 app.use('/uploads', express.static('uploads'))
 
 app.use(errorHandler);
-app.listen(APP_PORT,()=>console.log(`listening on port ${APP_PORT}`)); 
+app.listen(APP_PORT,"0.0.0.0",()=>console.log(`listening on port ${APP_PORT}`)); 
